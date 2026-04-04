@@ -14,7 +14,7 @@ const ChatWindow = ({ partner, bookingId, height = '400px', showHeader = true, o
 
     const getImageUrl = (imagePath) => {
         if (!imagePath) return 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
-        if (imagePath.startsWith('/uploads')) return `http://localhost:5001${imagePath}`;
+        if (imagePath.startsWith('/uploads')) return `https://daily-fix-nqm0.onrender.com${imagePath}`;
         return imagePath;
     };
 
@@ -22,7 +22,7 @@ const ChatWindow = ({ partner, bookingId, height = '400px', showHeader = true, o
     useEffect(() => {
         if (!user || (!partner && !bookingId)) return;
 
-        const newSocket = io('http://localhost:5001', { withCredentials: true });
+        const newSocket = io('https://daily-fix-nqm0.onrender.com', { withCredentials: true });
 
         newSocket.on('connect', () => {
             // ALWAYS join personal user room — needed to receive direct messages

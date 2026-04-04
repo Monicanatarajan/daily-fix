@@ -271,7 +271,7 @@ const SearchProviders = () => {
                                         <Col xs={3} sm={2} className="text-center pe-0">
                                             <img
                                                 src={p.user?.profileImage?.startsWith('/uploads')
-                                                    ? `http://localhost:5001${p.user.profileImage}`
+                                                    ? `https://daily-fix-nqm0.onrender.com${p.user.profileImage}`
                                                     : (p.user?.profileImage || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')}
                                                 alt={p.user?.name}
                                                 className="img-fluid rounded-circle object-fit-cover shadow-sm border border-2 border-white"

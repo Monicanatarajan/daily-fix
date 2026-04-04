@@ -48,7 +48,7 @@ const ManageProfile = () => {
 
             // If it's a relative path from our backend, prefix it
             const imgUrl = userData.profileImage?.startsWith('/uploads') 
-                ? `http://localhost:5001${userData.profileImage}` 
+                ? `https://daily-fix-nqm0.onrender.com${userData.profileImage}` 
                 : userData.profileImage;
                 
             setPreviewImage(imgUrl || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png');

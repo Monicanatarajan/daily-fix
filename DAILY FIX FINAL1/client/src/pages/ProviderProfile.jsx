@@ -83,7 +83,7 @@ const ProviderProfile = () => {
                             <div className="d-flex flex-column flex-sm-row gap-4 align-items-center align-items-sm-start">
                                 <img 
                                     src={provider.user?.profileImage?.startsWith('/uploads') 
-                                        ? `http://localhost:5001${provider.user.profileImage}` 
+                                        ? `https://daily-fix-nqm0.onrender.com${provider.user.profileImage}` 
                                         : (provider.user?.profileImage || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')} 
                                     alt={provider.user?.name}
                                     className="rounded-4 object-fit-cover shadow-sm border border-2 border-white"
@@ -201,7 +201,7 @@ const ProviderProfile = () => {
                                     <div className="d-flex justify-content-between align-items-center mb-2">
                                         <div className="d-flex align-items-center gap-2">
                                             <img
-                                                src={r.customer?.profileImage?.startsWith('/uploads') ? `http://localhost:5001${r.customer.profileImage}` : (r.customer?.profileImage || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')}
+                                                src={r.customer?.profileImage?.startsWith('/uploads') ? `https://daily-fix-nqm0.onrender.com${r.customer.profileImage}` : (r.customer?.profileImage || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')}
                                                 alt={r.customer?.name}
                                                 className="rounded-circle object-fit-cover shadow-sm border"
                                                 style={{ width: '40px', height: '40px' }}
