@@ -98,16 +98,14 @@ io.on('connection', (socket) => {
     });
 });
 
-mongoose.connect(MONGO_URI, {
-    serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of default 30s
-})
+mongoose.connect(MONGO_URI)
     .then(() => {
-        console.log('Successfully connected to MongoDB.');
+        console.log('MongoDB connected');
         server.listen(PORT, () => {
             console.log(`Server running on port ${PORT}`);
         });
     })
     .catch(err => {
-        console.error('CRITICAL: MongoDB connection failed:', err.message);
+        console.error('MongoDB connection failed:', err);
         process.exit(1);
     });
