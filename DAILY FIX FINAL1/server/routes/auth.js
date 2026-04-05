@@ -40,12 +40,7 @@ router.post('/send-otp', async (req, res) => {
         await user.save();
         console.log(`[AUTH] OTP saved to DB for ${email}. Now calling sendOTP...`);
         
-        try {
-            await sendOTP(email, otpCode);
-        } catch (emailError) {
-            console.error(`[AUTH] Failed to send email via utility: ${emailError.message}`);
-            // We still return success to the user because the OTP is in the console for dev
-        }
+        await sendOTP(email, otpCode);
 
         res.json({ message: 'OTP sent to your email.' });
 

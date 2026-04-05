@@ -32,9 +32,13 @@ app.use(cookieParser());
 // Serve uploaded images statically
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Database connection
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/dailyfix';
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+    console.error('FATAL: MONGO_URI environment variable is not set.');
+    process.exit(1);
+}
 
 // Disable operation buffering to fail immediately if connection is down
 mongoose.set('bufferCommands', false);
@@ -104,10 +108,6 @@ mongoose.connect(MONGO_URI, {
         });
     })
     .catch(err => {
-        console.error('CRITICAL: MongoDB connection failed!');
-        console.error('Ensure MongoDB service is running (net start MongoDB as Administrator).');
-        if (err.message.includes('ECONNREFUSED')) {
-            console.error('DEBUG: Connection Refused! Is the MongoDB service running on port 27017?');
-        }
-        console.error('Error Details:', err.message);
+        console.error('CRITICAL: MongoDB connection failed:', err.message);
+        process.exit(1);
     });
